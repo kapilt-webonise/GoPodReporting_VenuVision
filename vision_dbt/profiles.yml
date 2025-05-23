@@ -1,0 +1,23 @@
+vision_dbt:
+  outputs:
+    dev:
+      account: "{{ env_var('DEV_DBT_ENV_SECRET_ACCOUNT') }}"
+      database: "{{ env_var('DEV_DBT_ENV_SECRET_DB') }}"
+      password: "{{ env_var('DEV_DBT_ENV_SECRET_PASSWORD') }}"
+      role: "{{ env_var('DEV_DBT_ENV_SECRET_ROLE') }}"
+      schema: "{{ env_var('DEV_DBT_ENV_SECRET_SCHEMA') }}"
+      threads: 8
+      type: snowflake
+      user: "{{ env_var('DEV_DBT_ENV_SECRET_USER') }}"
+      warehouse: "{{ env_var('DEV_DBT_ENV_SECRET_WAREHOUSE') }}"
+    prod:
+      account: "{{ env_var('PRD_DBT_ENV_SECRET_ACCOUNT') }}"
+      database: "{{ env_var('PRD_DBT_ENV_SECRET_DB') }}"
+      password: "{{ env_var('PRD_DBT_ENV_SECRET_PASSWORD') }}"
+      role: "{{ env_var('PRD_DBT_ENV_SECRET_ROLE') }}"
+      schema: "{{ env_var('PRD_DBT_ENV_SECRET_SCHEMA') }}"
+      threads: 8
+      type: snowflake
+      user: "{{ env_var('PRD_DBT_ENV_SECRET_USER') }}"
+      warehouse: "{{ env_var('PRD_DBT_ENV_SECRET_WAREHOUSE') }}"
+  target: dev

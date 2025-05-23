@@ -1,0 +1,17 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# DBT artifacts
+dbt_modules/
+target/
+logs/
+
+# Python environment
+.venv/
+.env
+*.env
+
+# DBT profile (don't commit secrets)
+~/.dbt/
