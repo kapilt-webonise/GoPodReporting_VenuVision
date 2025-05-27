@@ -46,4 +46,4 @@ Command: dbt test Description: It runs tests defined in your DBT project to ensu
 - dbt deps:
 Command: dbt deps Description: Installs project dependencies defined in your packages.yml file, such as custom macros and packages.
 
-## For DBT documentation: https://docs.getdbt.com/reference/dbt-commands
+### For DBT documentation: https://docs.getdbt.com/reference/dbt-commands
