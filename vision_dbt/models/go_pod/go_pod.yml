@@ -1,0 +1,47 @@
+
+version: 2
+
+models:
+  - name: go_pod_kiosk_revenue
+    description: "revenue data for go pod kiosks"
+  - name: go_pod_transaction_report
+    description: "transaction data for go pod kiosks"
+
+
+sources:
+  - name: public
+    database: "GOPODREPORTING"
+    schema: public
+    tables:
+      - name: "KioskRevenues"
+        identifier: "KioskRevenues"
+      - name: "KIOSKS"
+        identifier: "KIOSKS"
+      - name: "SITES"
+        identifier: "SITES"
+      - name: "FACILITIES"
+        identifier: "FACILITIES"
+      - name: "INTERNATIONALFACILITIES"
+        identifier: "INTERNATIONALFACILITIES"
+      - name: "INTERNATIONALFACILITYEXCHANGERATES"
+        identifier: "INTERNATIONALFACILITYEXCHANGERATES"
+      - name: "COUPONS"
+        identifier: "COUPONS"
+      - name: "TRANSACTIONSET"
+        identifier: "TRANSACTIONSET"
+      - name: "PURCHASESET"
+        identifier: "PURCHASESET"
+      - name: "TRANSACTIONSTATUSLOOKUPSET"
+        identifier: "TRANSACTIONSTATUSLOOKUPSET"
+      - name: "PAYMENTSET"
+        identifier: "PAYMENTSET"
+      - name: "PAYMENTTYPELOOKUPSET"
+        identifier: "PAYMENTTYPELOOKUPSET"
+      - name: "PRODUCTSET"
+        identifier: "PRODUCTSET"
+      - name: "LOCALCOUPONS"
+        identifier: "LOCALCOUPONS"
+      - name: "RENTALOPTIONLOOKUPS"
+        identifier: "RENTALOPTIONLOOKUPS"
+      - name: "REASONCODELOOKUPS"
+        identifier: "REASONCODELOOKUPS"

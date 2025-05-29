@@ -15,3 +15,5 @@ logs/
 
 # DBT profile (don't commit secrets)
 ~/.dbt/
+
+.DS_Store

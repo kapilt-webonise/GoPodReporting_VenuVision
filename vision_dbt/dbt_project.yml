@@ -32,5 +32,10 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   vision_dbt:
     # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    go_pod:
+      go_pod_kiosk_revenue:
+        materialized: 'incremental'
+        unique_key: "'revenue_date'||'-'||'facility_name'"
+      go_pod_transaction_report:
+        materialized: 'incremental'
+        unique_key: "'TransactionDateTime'||'-'||'facility_name'||'-'||'sitename'"
