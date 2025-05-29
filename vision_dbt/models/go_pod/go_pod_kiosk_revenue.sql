@@ -3,7 +3,6 @@ with source_data as (
     select 
         cast(kr.RevenueDate as date) as revenue_date,
         ifer.ExchangeRate as exchange_rate,
-
         coalesce(kr.Cash, 0) * coalesce(ifer.ExchangeRate, 0) as cash,
         coalesce(kr.Credit, 0) * coalesce(ifer.ExchangeRate, 0) as credit,
         coalesce(kr.Other, 0) * coalesce(ifer.ExchangeRate, 0) as other,

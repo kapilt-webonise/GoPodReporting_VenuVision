@@ -35,7 +35,8 @@ models:
     go_pod:
       go_pod_kiosk_revenue:
         materialized: 'incremental'
-        unique_key: "'revenue_date'||'-'||'facility_name'"
+        unique_key: ['revenue_date', 'facility_name', 'site_name', 'kiosk_name']
       go_pod_transaction_report:
         materialized: 'incremental'
-        unique_key: "'TransactionDateTime'||'-'||'facility_name'||'-'||'sitename'"
+        incremental_strategy: 'delete+insert'
+        unique_key: ['transaction_identifier']
