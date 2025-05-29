@@ -9,10 +9,9 @@ with source_data as (
         coalesce(kr.Other, 0) * coalesce(ifer.ExchangeRate, 0) as other,
         coalesce(kr.Coupon, 0) * coalesce(ifer.ExchangeRate, 0) as coupon,
         coalesce(kr.Refunds, 0) * coalesce(ifer.ExchangeRate, 0) as refunds,
-
-        f.Id as facility_id,
-        f.FacilityName as facility_name
-
+        f.FacilityName as facility_name,
+        k.KIOSKNAME as kiosk_name,
+        s.SITENAME as site_name
     from {{ source('public', 'KioskRevenues') }} kr
     inner join {{ source('public', 'KIOSKS') }} k on kr.KioskId = k.Id
     inner join {{ source('public', 'SITES') }} s on k.Site_Id = s.Id
@@ -29,6 +28,8 @@ with source_data as (
 select 
     revenue_date,
     facility_name,
+    site_name,
+    kiosk_name,
     sum(cash) as cash,
     sum(credit) as credit,
     sum(other) as other,
@@ -37,5 +38,5 @@ select
     sum(refunds) as refunds
 
 from source_data
-group by revenue_date, facility_name
-order by revenue_date, facility_name
+group by revenue_date, facility_name, site_name, kiosk_name
+order by revenue_date, facility_name, site_name, kiosk_name

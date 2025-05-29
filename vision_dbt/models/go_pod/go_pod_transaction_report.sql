@@ -2,12 +2,11 @@ with source_data as (
 
     select 
 			ts.TransactionDateTime,
-			f.facilityname, s.sitename, rol.option, k.id as KioskId, 
+			f.facilityname, s.sitename, rol.option, k.kioskname, 
 			CASE WHEN	pst.id < 4  THEN 'Locker' ELSE 'Ancillary' END as Product_Type,
 			pst.ProductLongName, ptls.name as PaymentType, tsls.name as Status, 
 			ts.amount, ts.salestaxamount,
-			cp.value as CouponValue, rcl.ReasonCode as Coupon_Reason,
-            f.id as facilityid,s.id as site_id,rol.id as rentaloptionlookupid
+			cp.value as CouponValue, rcl.ReasonCode as Coupon_Reason
 	from {{ source('public', 'TRANSACTIONSET') }} ts
 		join {{ source('public', 'PURCHASESET') }} ps on ts.PurchaseId = ps.id
 		inner join {{ source('public', 'TRANSACTIONSTATUSLOOKUPSET') }} tsls on tsls.id = ts.transactionstatuslookupid
